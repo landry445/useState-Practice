@@ -1,6 +1,11 @@
+import { useState } from "react";
 import Exercice from "./container/Exercice";
 
 export default function Exercice2() {
+  const [value, setValue] = useState("");
+  const handleChange = (event) => {
+    setValue(event.target.value);
+  }
   // 1. Crée un state qui garde en mémoire la valeur de l'input.
   // 2. Implémente une fonction pour mettre à jour la valeur du state lorsque l'utilisateur tape dans l'input.
   // 3. Passe la fonction de mise à jour au champ de texte pour qu'il soit contrôlé.
@@ -14,8 +19,8 @@ export default function Exercice2() {
       </p>
       <div className="solution">
         <div>
-          <input type="text" />
-          <p>"Valeur de l'input"</p>
+          <input type="text" value={value} onChange={handleChange}/>
+          <p>{value}</p>
         </div>
       </div>
     </Exercice>
